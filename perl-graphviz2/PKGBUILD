@@ -1,46 +1,73 @@
 # Contributor: Jason St. John <jstjohn .. purdue . edu>
 
-_perlmod=GraphViz2
 pkgname=perl-graphviz2
-pkgver=2.14
+pkgver=2.28
 pkgrel=1
 pkgdesc="GraphViz2 - A wrapper for AT&T's Graphviz"
+_dist=GraphViz2
 arch=('any')
-url="http://search.cpan.org/dist/$_perlmod"
+url="http://search.cpan.org/dist/$_dist"
 license=('Artistic2.0')
 options=('!emptydirs')
-depends=('perl-algorithm-dependency>=1.110'
-         'perl-capture-tiny>=1.10'
-         'perl-class-isa>=0.36'
-         'perl-class-load>=0.17'
-         'perl-dbi>=1.616'
-         'perl-file-temp>=0.22'
-         'perl-file-which>=1.09'
-         'perl-hash-fieldhash>=0.10'
-         'perl-ipc-run>=0.90'
-         'perl-log-handler>=0.71'
-         'perl-parse-recdescent>=1.965001'
-         'perl-text-xslate>=1.2000'
-         'perl-tree-dag-node>=1.06'
-         'perl-try-tiny>=0.09'
-         'perl-xml-bare')
-makedepends=('perl-module-build>=0.3800' 'perl-test-pod>=1.45')
-source=("http://cpan.perl.org/modules/by-module/$_perlmod/$_perlmod-${pkgver}.tgz")
-sha512sums=('a39915d003fccc99c2cc3b87e0d9039d79ce5ed433ff7b9a28b74130cf4d5e634f499ea7affefdc5cc99b4a4bc993276a34f12c2eeeb25e844d916e218eb1a1a')
+depends=(
+         'perl-algorithm-dependency'
+         'perl-capture-tiny'
+         'perl-class-isa'
+         'perl-class-load'
+         'perl-data-section-simple'
+         'perl-date-simple'
+         'perl-dbi'
+         'perl-file-homedir'
+         'perl-file-slurp'
+         'perl-file-temp'
+         'perl-file-which'
+         'perl-hash-fieldhash'
+         'perl-html-tree'
+         'perl-html-entities'
+         'perl-ipc-run3'
+         'perl-log-handler'
+         'perl-parse-recdescent'
+         'perl-perl6-slurp'
+         'perl-set-array'
+         'perl-text-xslate'
+         'perl-tree-dag-node'
+         'perl-try-tiny'
+         'perl-xml-bare'
+         'perl-xml-tiny'
+         )
+makedepends=(
+             'perl-module-build'
+             'perl-test-pod'
+             )
+source=("http://search.cpan.org/CPAN/authors/id/R/RS/RSAVAGE/$_dist/$_dist-$pkgver.tgz")
+md5sums=('ca932d1faec592e8ddbe08fb3e2bb899')
+sha1sums=('fd000065f1991e8a6364eec514d87015a2cd049a')
+sha256sums=('eed5af07c9fa8613dec692dad07b582997f243c821b32db9fa156b340cb69f1c')
+sha512sums=('5f503fe8eac4c57afbc9db8848c372fb0d8c2fd88f64d61daac8b755b2f0c74ebc4bd7c329dd7a921c053fd164b1bbfd37bee2dd028c12a76d35131a9c6ff46a')
+
 
 build() {
-	cd "$srcdir/$_perlmod-$pkgver"
+   cd "$srcdir/$_dist-$pkgver"
+   unset PERL5LIB PERL_MM_OPT PERL_LOCAL_LIB_ROOT
+   export PERL_MM_USE_DEFAULT=1 PERL_AUTOINSTALL=--skipdeps
 
-	perl Build.PL installdirs=vendor destdir="$pkgdir/"
-	perl Build
+	#perl Build.PL installdirs=vendor destdir="$pkgdir/"
+	#perl Build
+   /usr/bin/perl Makefile.PL
+   make
 }
 
 check() {
-	cd "$srcdir/$_perlmod-$pkgver"
-	perl Build test
+   cd "$srcdir/$_dist-$pkgver"
+   unset PERL5LIB PERL_MM_OPT PERL_LOCAL_LIB_ROOT
+   export PERL_MM_USE_DEFAULT=1
+   make test
+	#perl Build test
 }
 
 package() {
-	cd "$srcdir/$_perlmod-$pkgver"
-	perl Build install
+   cd "$srcdir/$_dist-$pkgver"
+   unset PERL5LIB PERL_MM_OPT PERL_LOCAL_LIB_ROOT
+   make install INSTALLDIRS=vendor DESTDIR="$pkgdir"
+	#perl Build install
 }
