@@ -3,7 +3,7 @@
 
 pkgname=perl-graphviz2
 pkgver=2.28
-pkgrel=1
+pkgrel=2
 pkgdesc="GraphViz2 - A wrapper for AT&T's Graphviz"
 _dist=GraphViz2
 arch=('any')
@@ -42,7 +42,7 @@ makedepends=(
              'perl-module-build'
              'perl-test-version'
              )
-source=("http://search.cpan.org/CPAN/authors/id/R/RS/RSAVAGE/$_dist/$_dist-$pkgver.tgz")
+source=("http://search.cpan.org/CPAN/authors/id/R/RS/RSAVAGE/$_dist-$pkgver.tgz")
 sha512sums=('5f503fe8eac4c57afbc9db8848c372fb0d8c2fd88f64d61daac8b755b2f0c74ebc4bd7c329dd7a921c053fd164b1bbfd37bee2dd028c12a76d35131a9c6ff46a')
 
 build() {
