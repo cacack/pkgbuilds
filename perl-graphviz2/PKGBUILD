@@ -22,11 +22,12 @@ depends=(
          'perl-file-slurp'
          'perl-file-temp'
          'perl-file-which'
-         'perl-hash-fieldhash'
+         #'perl-hash-fieldhash'
+         'perl-html-entities-interpolate'
          'perl-html-tree'
-         'perl-html-entities'
          'perl-ipc-run3'
          'perl-log-handler'
+         'perl-moo'
          'perl-parse-recdescent'
          'perl-perl6-slurp'
          'perl-set-array'
@@ -38,7 +39,8 @@ depends=(
          )
 makedepends=(
              'perl-module-build'
-             'perl-test-pod'
+             #'perl-test-pod'
+             'perl-test-version'
              )
 source=("http://search.cpan.org/CPAN/authors/id/R/RS/RSAVAGE/$_dist/$_dist-$pkgver.tgz")
 md5sums=('ca932d1faec592e8ddbe08fb3e2bb899')
