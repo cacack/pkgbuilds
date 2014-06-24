@@ -1,5 +1,6 @@
 # Maintainer: Chris Clonch <chris at theclonchs dot com>
 # Contributor: Jason St. John <jstjohn .. purdue . edu>
+# https://github.com/cacack/pkgbuilds/tree/master/perl-graphviz2
 
 pkgname=perl-graphviz2
 pkgver=2.28
