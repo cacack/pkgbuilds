@@ -2,7 +2,7 @@
 
 pkgname=perl-test-version
 pkgver=1.002004
-pkgrel=1
+pkgrel=2
 pkgdesc="Test::Version - Check to see that version's in modules are sane"
 _dist=Test-Version
 arch=('any')
@@ -13,6 +13,10 @@ depends=(
          'perl'
          'perl-file-find-rule-perl'
         )
+makedepends=(
+             'perl-test-tester'
+             'perl-test-exception'
+            )
 source=("http://search.cpan.org/CPAN/authors/id/X/XE/XENO/$_dist-$pkgver.tar.gz")
 md5sums=('58d140bdfbed940453da85e9a73145c8')
 sha1sums=('a3e65a7734be4bbb03168c35e07716a0fa466a18')
