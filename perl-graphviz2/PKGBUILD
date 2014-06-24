@@ -11,6 +11,8 @@ url="http://search.cpan.org/dist/$_dist"
 license=('Artistic2.0')
 options=('!emptydirs')
 depends=(
+         'graphviz'
+         'perl'
          'perl-algorithm-dependency'
          'perl-capture-tiny'
          'perl-class-isa'
@@ -22,7 +24,6 @@ depends=(
          'perl-file-slurp'
          'perl-file-temp'
          'perl-file-which'
-         #'perl-hash-fieldhash'
          'perl-html-entities-interpolate'
          'perl-html-tree'
          'perl-ipc-run3'
@@ -39,23 +40,15 @@ depends=(
          )
 makedepends=(
              'perl-module-build'
-             #'perl-test-pod'
              'perl-test-version'
              )
 source=("http://search.cpan.org/CPAN/authors/id/R/RS/RSAVAGE/$_dist/$_dist-$pkgver.tgz")
-md5sums=('ca932d1faec592e8ddbe08fb3e2bb899')
-sha1sums=('fd000065f1991e8a6364eec514d87015a2cd049a')
-sha256sums=('eed5af07c9fa8613dec692dad07b582997f243c821b32db9fa156b340cb69f1c')
 sha512sums=('5f503fe8eac4c57afbc9db8848c372fb0d8c2fd88f64d61daac8b755b2f0c74ebc4bd7c329dd7a921c053fd164b1bbfd37bee2dd028c12a76d35131a9c6ff46a')
-
 
 build() {
    cd "$srcdir/$_dist-$pkgver"
    unset PERL5LIB PERL_MM_OPT PERL_LOCAL_LIB_ROOT
    export PERL_MM_USE_DEFAULT=1 PERL_AUTOINSTALL=--skipdeps
-
-	#perl Build.PL installdirs=vendor destdir="$pkgdir/"
-	#perl Build
    /usr/bin/perl Makefile.PL
    make
 }
@@ -65,12 +58,10 @@ check() {
    unset PERL5LIB PERL_MM_OPT PERL_LOCAL_LIB_ROOT
    export PERL_MM_USE_DEFAULT=1
    make test
-	#perl Build test
 }
 
 package() {
    cd "$srcdir/$_dist-$pkgver"
    unset PERL5LIB PERL_MM_OPT PERL_LOCAL_LIB_ROOT
    make install INSTALLDIRS=vendor DESTDIR="$pkgdir"
-	#perl Build install
 }
