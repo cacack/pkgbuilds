@@ -1,7 +1,41 @@
+# .gitignore for Arch Linux AUR PKGBUILDs
+
+# Directories #
+###############
+src/
+pkg/
+
+# Temp/swap files #
+###################
+*~
+*.part
+*.swp
+
+# Archives, packages #
+######################
+*.7z
+*.bin
+*.deb
+*.dmg
+*.gem
+*.gz
+*.iso
+*.jar
+*.rar
+*.rpm
 *.tar
 *.tar.*
-*.log
-*.log.*
-*.sig
-pkg/
-src/
+*.tgz
+*.xz
+*.zip
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
