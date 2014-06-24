@@ -3,7 +3,7 @@
 
 pkgname=perl-set-array
 pkgver=0.30
-pkgrel=1
+pkgrel=2
 pkgdesc="Set::Array - Arrays as objects with lots of handy methods"
 _dist=Set-Array
 arch=('any')
@@ -13,9 +13,10 @@ options=('!emptydirs')
 depends=(
          'perl'
          'perl-try-tiny'
-         'perl-want'
+         'perl-want>=0.23'
         )
 makedepends=(
+             'perl-test-deep'
             )
 source=("http://search.cpan.org/CPAN/authors/id/R/RS/RSAVAGE/$_dist-$pkgver.tgz")
 md5sums=('e8f61d07def3f25c1ad39dfc7e34b3f7')
