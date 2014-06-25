@@ -2,6 +2,10 @@
 # Contributor: Chris Clonch <chris at theclonchs dot com>
 # Contributor: Nathan Owe <ndowens04 at gmail>
 # Contributor: Chris Allison <daemon@cca.me.uk>
+
+# Current source for PKGBUILD can be found at
+# https://github.com/cacack/pkgbuilds/tree/master/ccextractor
+
 pkgname=ccextractor
 pkgver=0.69
 pkgrel=1
