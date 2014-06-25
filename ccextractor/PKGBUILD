@@ -20,9 +20,7 @@ source=(
 sha512sums=('51c3218a9a8e88aa86acfdd0cbd51bc52a734bde77dbea32c7e2a0f63835b25e0e86ea4b228564e5e996a5a19c74d5513d057bf510c324280f0c155a96b77775')
 
 build() {
-  #cd "$srcdir/$pkgname.$pkgver/src"
-  #patch -i $srcdir/608_spupng.cpp.patch
-  cd "$srcdir/$pkgname.$pkgver/linux"
+  cd "$srcdir/$pkgname/linux"
   ./build
 }
 
