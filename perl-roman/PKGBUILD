@@ -1,5 +1,6 @@
 # Maintainer: Chris Clonch <chris at theclonchs dot com>
 # Contributor: Chris Clonch <chris at theclonchs dot com>
+# https://github.com/cacack/pkgbuilds/tree/master/perl-roman
 
 pkgname=perl-roman
 pkgver=1.23
