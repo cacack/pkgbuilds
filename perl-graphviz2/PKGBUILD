@@ -3,8 +3,8 @@
 # https://github.com/cacack/pkgbuilds/tree/master/perl-graphviz2
 
 pkgname=perl-graphviz2
-pkgver=2.28
-pkgrel=2
+pkgver=2.34
+pkgrel=1
 pkgdesc="GraphViz2 - A wrapper for AT&T's Graphviz"
 _dist=GraphViz2
 arch=('any')
@@ -44,7 +44,7 @@ makedepends=(
              'perl-test-version'
              )
 source=("http://search.cpan.org/CPAN/authors/id/R/RS/RSAVAGE/$_dist-$pkgver.tgz")
-sha512sums=('5f503fe8eac4c57afbc9db8848c372fb0d8c2fd88f64d61daac8b755b2f0c74ebc4bd7c329dd7a921c053fd164b1bbfd37bee2dd028c12a76d35131a9c6ff46a')
+sha512sums=('c39c92f1530c468d35a216f5252ce6c927b61f030a83b39ca253dbc6153a6ebd4b30115bbf8b48cee728f888ef39786fc68c8adf367d98033544707473e7caac')
 
 build() {
    cd "$srcdir/$_dist-$pkgver"
