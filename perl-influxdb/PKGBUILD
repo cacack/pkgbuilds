@@ -1,0 +1,52 @@
+# Maintainer: Chris Clonch <chris at theclonchs dot com>
+# Contributor: Chris Clonch <chris at theclonchs dot com>
+# https://github.com/cacack/pkgbuilds/tree/master/perl-gedcom
+
+pkgname=perl-influxdb
+pkgver=1.002
+pkgrel=1
+pkgdesc="Perl client for InfluxDB"
+_dist=InfluxDB
+arch=('any')
+url="http://search.cpan.org/dist/$_dist"
+license=('Artistic1.0')
+options=('!emptydirs')
+depends=(
+         'perl'
+         'perl-pod-wordlist'
+         'perl-test-spelling'
+         'perl-test-fixme'
+         'perl-uri-escape'
+         'perl-class-accessor-lite'
+         'perl-module-build-tiny'
+         'perl-data-validator'
+         'perl-test-kwalitee'
+         'perl-json'
+         'perl-furl'
+        )
+makedepends=(
+            )
+source=("http://search.cpan.org/CPAN/authors/id/H/HI/HIROSE/$_dist-$pkgver.tar.gz")
+sha512sums=('')
+
+build() {
+   cd "$srcdir/$_dist-$pkgver"
+   unset PERL5LIB PERL_MM_OPT PERL_LOCAL_LIB_ROOT
+   export PERL_MM_USE_DEFAULT=1 PERL_AUTOINSTALL=--skipdeps
+   /usr/bin/perl Makefile.PL
+   make
+}
+
+check() {
+	cd "$srcdir/$_dist-$pkgver"
+   cd "$srcdir/$_dist-$pkgver"
+   unset PERL5LIB PERL_MM_OPT PERL_LOCAL_LIB_ROOT
+   export PERL_MM_USE_DEFAULT=1
+   make test
+}
+
+package() {
+   cd "$srcdir/$_dist-$pkgver"
+   unset PERL5LIB PERL_MM_OPT PERL_LOCAL_LIB_ROOT
+   make install INSTALLDIRS=vendor DESTDIR="$pkgdir"
+}
