@@ -4,7 +4,7 @@
 # Contributor: Ben Alex <ben.alex@acegi.com.au>
 
 pkgname='influxdb'
-#pkgver='0.8.8'
+pkgver='git'
 pkgrel='1'
 epoch=
 pkgdesc='Scalable datastore for metrics, events, and real-time analytics'
